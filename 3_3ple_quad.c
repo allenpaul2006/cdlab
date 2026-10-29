@@ -111,7 +111,7 @@ void Quadruple() {
 void triple() {
     char operandstack[100][20];
     int operandtop = -1;
-    int tempcount = 0;
+    int tempcount = 0;//change
 
     for (int i = 0; postfix[i] != '\0'; i++) {
         char symbol = postfix[i];
@@ -123,10 +123,10 @@ void triple() {
             char op1[20], op2[20], temp[20];
             strcpy(op2, operandstack[operandtop--]);
             strcpy(op1, operandstack[operandtop--]);
-            sprintf(temp, "(%d)", tempcount);
+            sprintf(temp, "(%d)", tempcount++);
             printf("%c\t%s\t%s\n", symbol, op1, op2);
 
-            tempcount++;
+            
             operandtop++;
             strcpy(operandstack[operandtop], temp);
         }
