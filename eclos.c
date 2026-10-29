@@ -33,7 +33,7 @@ int main()
 
         front = 0;
         rear = 0;
-        count = 0;
+        count = 0;//dont forget to initialize count to 0 for each state
 
         queue[rear++] = i;
         visited[i] = 1;
