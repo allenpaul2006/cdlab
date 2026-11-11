@@ -19,18 +19,17 @@ int main()
 
     for (i = 0; i < notrans; i++)
     {
-        scanf("%d %c %d",
-              &trans[i][0], &c, &trans[i][2]);
+        scanf("%d %c %d",&trans[i][0], &c, &trans[i][2]);//dont forgeet space 
         trans[i][1] = c;
     }
 
     printf("\nEpsilon closure of states:\n");
 
-    for (i = 1; i <= nostate; i++)//for (i = 0; i < nostate; i++)
+    for (i = 0; i < nostate; i++)
     {
         for (j = 0; j < 10; j++)
             visited[j] = 0;
-
+          
         front = 0;
         rear = 0;
         count = 0;//dont forget to initialize count to 0 for each state
@@ -60,18 +59,20 @@ int main()
             }
         }
 
-        eclos[i][count] = 0;//eclos[i][count] = -1;
+        eclos[i][count] = -1;
     }
 
-    for (i = 1; i <= nostate; i++)//for (i = 0; i < nostate; i++)
+    for (i = 0; i < nostate; i++)
     {
         printf("E-closure(q%d) = {", i);
 
-        for (j = 0; eclos[i][j] != 0; j++)//for (j = 0; eclos[i][j] != -1; j++)
+        for (j = 0; eclos[i][j] != -1; j++)
         {
             printf("q%d", eclos[i][j]);
 
-            if (eclos[i][j + 1] != 0)//if (eclos[i][j + 1] != -1)
+            
+            
+            if (eclos[i][j + 1] != -1)
                 printf(", ");
         }
 
